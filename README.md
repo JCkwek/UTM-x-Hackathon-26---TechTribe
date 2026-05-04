@@ -44,11 +44,6 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 
-### Deployment
-
-### `npm run build` fails to minify
-
-
 ### Case Study:
 (case study 2)
 The Youth Resilience Challenge  
@@ -71,7 +66,3 @@ Note: The examples above are provided as starting points. Participants are encou
 
 
 
-
-
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
