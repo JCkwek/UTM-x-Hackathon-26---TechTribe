@@ -68,7 +68,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 
-Case Study 2:
+### Case Study:
+(case study 2)
 The Youth Resilience Challenge  
 Introduction
 Despite high internet penetration, a significant portion of Malaysian tertiary students and fresh graduates fall into debt traps early in their careers or find it hard to manage their budgets for future planning (e.g. saving and investing). While current banking tools provide transactional data, they largely lack the capacity for proactive, actionable intervention. This challenge invites participants to explore how technology  can make "Financial Resilience" the default setting for a student’s / early graduate's lifestyle, using GXBank's products as the foundational tool, can make financial resilience a default behaviour for students and early-career graduates, rather than an afterthought. Please feel free to recommend campaign ideas and/or new features to help this generation build positive financial habits  
