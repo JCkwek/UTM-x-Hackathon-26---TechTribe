@@ -1,17 +1,31 @@
-.mainlayout{
+/* .mainlayout{
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 1fr auto ;
      grid-template-areas:
-        "topnav topnav"
-        "content content";
+        "content content"
+        "bottomnav bottomnav";
     height: 100vh;
-    overflow: hidden; /* stops the whole page from scrolling */
-}
+    overflow: hidden;
+} */
 
-.contentContainer {
+/* .contentContainer {
     grid-area: content;
     height: 100%;
     overflow-y: auto;
-    position: relative; /*use for the loading*/
+    position: relative; 
+} */
+
+.mainlayout{
+    display: grid;
+    grid-template-rows: 1fr 70px; 
+    height: 100vh;
+    width: 100vw;
+    background-color: #f8f9fa; 
+    overflow: hidden;
+}
+
+.contentContainer {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 

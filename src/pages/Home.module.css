@@ -1,7 +1,88 @@
-.home{
-    padding: 1rem;
-}
 
 .homeContentContainer{
     padding: 1rem;
+}
+
+.home {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.greeting h2 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #333;
+}
+
+.balanceCard {
+    background: linear-gradient(135deg, #000000 0%, #2c2c2c 100%);
+    color: white;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.balanceLabel {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.balanceAmount {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.actionGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.actionItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.iconCircle {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    font-size: 1.2rem;
+}
+
+.sectionTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.pocketCard {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #eee;
 }
