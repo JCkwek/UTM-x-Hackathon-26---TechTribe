@@ -5,6 +5,7 @@ import ChallengeReward from './pages/ChallengeReward';
 import './App.css';
 import FinancialAdvice from './pages/FinancialAdvice';
 import Savings from './pages/Savings';
+import Scanning from './pages/Scanning';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Route path="/financial_advice" element={<FinancialAdvice />} />
           <Route path="/savings" element={<Savings />} />
           <Route path="challenges" element={<ChallengeReward />} />
-          {/* <Route path="products" element={<Products />} /> */}
+          <Route path="scanning" element={<Scanning />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,129 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.cameraMock {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cameraImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    padding: 1rem;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+    z-index: 1;
+}
+
+.backBtn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 35px; /* Offset for the back button to center title */
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+/* The Scanning Frame */
+.viewfinder {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.6);
+    border-radius: 24px;
+}
+
+/* Laser */
+.laser {
+    width: 90%;
+    left: 5%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #A678FF, transparent);
+    box-shadow: 0 0 15px #A678FF;
+    position: absolute;
+    top: 0;
+    animation: scan 2.5s infinite ease-in-out;
+}
+
+@keyframes scan {
+    0% { top: 5%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 95%; opacity: 0; }
+}
+
+.corner {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 5px solid #A678FF;
+}
+
+.topLeft { top: -2px; left: -2px; border-right: none; border-bottom: none; border-top-left-radius: 20px; }
+.topRight { top: -2px; right: -2px; border-left: none; border-bottom: none; border-top-right-radius: 20px; }
+.bottomLeft { bottom: -2px; left: -2px; border-right: none; border-top: none; border-bottom-left-radius: 20px; }
+.bottomRight { bottom: -2px; right: -2px; border-left: none; border-top: none; border-bottom-right-radius: 20px; }
+
+/* Footer & Buttons */
+.footer {
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.hintText {
+    color: #eee;
+    font-size: 0.9rem;
+}
+
+.galleryBtn {
+    background-color: #623194;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.galleryBtn:hover {
+    background-color: #4b2570;
+}

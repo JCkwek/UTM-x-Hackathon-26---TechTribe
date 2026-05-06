@@ -46,7 +46,7 @@ function FinancialAdvice() {
             <header className={styles.header}>
                 <button
                     className={styles.backBtn}
-                    onClick={() => handleClick('Back')}
+                    onClick={() => navigate(-1)}
                 >
                     ←
                 </button>

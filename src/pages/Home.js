@@ -6,7 +6,7 @@ function Home() {
 
     const handleClick = (action) => {
         if (action === 'Scan' || action === 'Send') {
-            navigate('/financial_advice');
+            navigate('/scanning');
             return;
         }
 
