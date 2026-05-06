@@ -1,65 +1,151 @@
 import styles from './Home.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+    const navigate = useNavigate();
+
     const handleClick = (action) => {
+        if (action === 'Scan' || action === 'Send') {
+            navigate('/financial_advice');
+            return;
+        }
+
+        if (action === 'Emergency Fund' || action === 'New Car Fund') {
+            navigate('/savings');
+            return;
+        }
+
         alert(`${action} clicked!`);
     };
 
     return (
         <div className={styles.home}>
-            {/* Header Area */}
+            {/* Header */}
             <header className={styles.header}>
                 <div className={styles.greeting}>
-                    <p style={{margin: 0, fontSize: '0.8rem', color: '#666'}}>Good morning,</p>
+                    <p>Good morning,</p>
                     <h2>GX User</h2>
                 </div>
-                <div className={styles.profileIcon}>🔔</div>
-            </header>
-!
-            {/* Main Balance Card */}
-            <div className={styles.balanceCard}>
-                <div className={styles.balanceLabel}>Main Account</div>
-                <div className={styles.balanceAmount}>RM 1,250.00</div>
-                <button 
-                    onClick={() => handleClick('Add Money')}
-                    style={{
-                        backgroundColor: '#d1ff00', // Signature GX Green
-                        border: 'none',
-                        padding: '8px 16px',
-                        borderRadius: '20px',
-                        fontWeight: 'bold',
-                        marginTop: '10px'
-                    }}
-                >
-                    + Add Money
 
+                <button
+                    className={styles.notificationBtn}
+                    onClick={() => handleClick('Notification')}
+                >
+                    🔔
+                    <span className={styles.notificationDot}></span>
                 </button>
-            </div>
+            </header>
+
+            {/* Main Account Card */}
+            <section className={styles.balanceCard}>
+                <div className={styles.balanceTop}>
+                    <div>
+                        <span className={styles.balanceLabel}>Main Account</span>
+                        <span className={styles.primaryPill}>Primary</span>
+                    </div>
+                    <div className={styles.gxWatermark}>GX</div>
+                </div>
+
+                <p className={styles.availableText}>Available Balance</p>
+
+                <div className={styles.balanceBottom}>
+                    <h1>RM 1,250.00</h1>
+
+                    <button
+                        className={styles.addMoneyBtn}
+                        onClick={() => handleClick('Add Money')}
+                    >
+                        + Add Money
+                    </button>
+                </div>
+            </section>
 
             {/* Quick Actions */}
-            <div className={styles.actionGrid}>
-                {['Send', 'Receive', 'Scan', 'More'].map((item) => (
-                    <div key={item} className={styles.actionItem} onClick={() => handleClick(item)}>
-                        <div className={styles.iconCircle}>
-                            {item === 'Send' && '💸'}
-                            {item === 'Receive' && '📥'}
-                            {item === 'Scan' && '🤳'}
-                            {item === 'More' && '░'}
-                        </div>
-                        <span>{item}</span>
-                    </div>
+            <section className={styles.quickActions}>
+                {[
+                    { label: 'Send', icon: '➤' },
+                    { label: 'Receive', icon: '↓' },
+                    { label: 'Scan', icon: '▣' },
+                    { label: 'More', icon: '▦' }
+                ].map((item) => (
+                    <button
+                        key={item.label}
+                        className={styles.actionItem}
+                        onClick={() => handleClick(item.label)}
+                    >
+                        <div className={styles.iconCircle}>{item.icon}</div>
+                        <span>{item.label}</span>
+                    </button>
                 ))}
-            </div>
+            </section>
 
-            {/* Savings Pockets Section */}
-            <section>
-                <h3 className={styles.sectionTitle}>Pockets</h3>
-                <div className={styles.pocketCard}>
-                    <div>
-                        <div style={{fontWeight: 600}}>New Car Fund</div>
-                        <div style={{fontSize: '0.8rem', color: '#666'}}>Earn 3.00% p.a.</div>
+            {/* AI Insight Section */}
+            <section className={styles.insightSection}>
+                <div className={styles.sectionHeader}>
+                    <h3>AI Insight</h3>
+                    <button onClick={() => handleClick('See all insights')}>
+                        See all ›
+                    </button>
+                </div>
+
+                <div className={styles.aiInsightCard}>
+                    <div className={styles.aiRobot}>
+                        🤖
                     </div>
-                    <div style={{fontWeight: 700}}>RM 500.00</div>
+
+                    <p>
+                        You spent <strong>RM 150</strong> on food delivery this month.
+                        Cutting back by <strong>RM 20</strong> this week can help you
+                        stay on track for your <strong>RM 300</strong> savings goal.
+                    </p>
+                </div>
+
+                <div
+                    className={styles.emergencyInsight}
+                    onClick={() => handleClick('Emergency Fund')}
+                >
+                    <div className={styles.shieldIcon}>🛡️</div>
+
+                    <div className={styles.emergencyContent}>
+                        <div className={styles.emergencyText}>
+                            <span>Emergency Fund is</span>
+                            <strong>62%</strong>
+                            <span>complete</span>
+                        </div>
+
+                        <div className={styles.progressBar}>
+                            <div className={styles.progressFill}></div>
+                        </div>
+                    </div>
+
+                    <span className={styles.chevron}>›</span>
+                </div>
+            </section>
+
+            {/* Pockets Section */}
+            <section className={styles.pocketsSection}>
+                <div className={styles.sectionHeader}>
+                    <h3>Pockets</h3>
+                    <button onClick={() => handleClick('View all pockets')}>
+                        View all ›
+                    </button>
+                </div>
+
+                <div
+                    className={styles.pocketCard}
+                    onClick={() => handleClick('New Car Fund')}
+                >
+                    <div className={styles.pocketIcon}>🚗</div>
+
+                    <div className={styles.pocketInfo}>
+                        <h4>New Car Fund</h4>
+                        <p>Earn 3.00% p.a.</p>
+                    </div>
+
+                    <div className={styles.pocketAmount}>
+                        <strong>RM 500.00</strong>
+                        <span>›</span>
+                    </div>
                 </div>
             </section>
         </div>
