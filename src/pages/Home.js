@@ -9,7 +9,7 @@ function Home(){
     return(
         <div className={styles.home}>
             <div className={styles.homeContentContainer}>
-                <h2>GXBank home page123 test</h2>
+                <h2>GXBank home page</h2>
 
                 <br /><br />
 
