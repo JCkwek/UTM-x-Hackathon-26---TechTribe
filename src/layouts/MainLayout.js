@@ -1,12 +1,12 @@
 import {Outlet} from "react-router-dom";
-import './MainLayout.module.css'
+import styles from './MainLayout.module.css'
 import TopNav  from "../components/TopNav";
 
 function MainLayout(){
     return(
-        <div className="mainlayout">
+        <div className={styles.mainlayout}>
             <TopNav />
-            <div className="contentContainer">
+            <div className={styles.contentContainer}>
                 <Outlet />
             </div>
         </div>
