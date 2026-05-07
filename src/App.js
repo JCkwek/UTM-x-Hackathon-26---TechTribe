@@ -6,6 +6,7 @@ import './App.css';
 import FinancialAdvice from './pages/FinancialAdvice';
 import Savings from './pages/Savings';
 import Scanning from './pages/Scanning';
+import Transactions from './pages/Transactions';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route index element={<Home />} /> 
           <Route path="/financial_advice" element={<FinancialAdvice />} />
           <Route path="/savings" element={<Savings />} />
+          <Route path="/transactions" element={<Transactions />} />
           <Route path="challenges" element={<ChallengeReward />} />
           <Route path="scanning" element={<Scanning />} />
         </Route>

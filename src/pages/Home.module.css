@@ -109,7 +109,7 @@
 .availableText {
   position: relative;
   z-index: 1;
-  margin: 28px 0 6px;
+  margin: 6px 0 6px;
   color: #d1d5db;
   font-size: 0.9rem;
 }

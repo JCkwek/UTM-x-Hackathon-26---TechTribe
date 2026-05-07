@@ -190,11 +190,12 @@
 
 .gxWatermark {
   position: absolute;
-  right: 28px;
-  top: 45px;
-  font-size: 3.4rem;
+  top: 1.2rem;   
+  right: 1.2rem; 
+  font-size: 3.2rem; 
   font-weight: 900;
   color: rgba(255, 255, 255, 0.06);
+  line-height: 1;
   pointer-events: none;
 }
 
@@ -479,7 +480,7 @@
   }
 
   .transactionCard {
-    min-height: 205px;
+    min-height: 195px;
     padding: 1.1rem;
     border-radius: 22px;
   }
@@ -523,12 +524,6 @@
   .riskPill {
     padding: 8px 10px;
     font-size: 0.72rem;
-  }
-
-  .gxWatermark {
-    right: 20px;
-    top: 52px;
-    font-size: 3rem;
   }
 
   .aiAdviceCard {
@@ -585,7 +580,7 @@
   }
 
   .transactionCard {
-    min-height: 200px;
+    min-height: 180px;
     padding: 1rem;
   }
 
@@ -627,9 +622,9 @@
   }
 
   .gxWatermark {
-    right: 18px;
-    top: 54px;
-    font-size: 2.75rem;
+    top: 1rem;
+    right: 1rem;
+    font-size: 3rem;
   }
 
   .aiAdviceCard {
