@@ -2,19 +2,22 @@ import React, { useState, useEffect } from 'react';
 import styles from './ChallengeReward.module.css';
 
 export default function ChallengeReward() {
-  // State Management
+  // Core State
   const [balance, setBalance] = useState(1500.00); 
   const [pocketBalance, setPocketBalance] = useState(250.00); 
   const [resilienceScore, setResilienceScore] = useState(0);
   const [logs, setLogs] = useState([
-    { time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), message: 'System initialized. Transaction monitoring active.', type: 'neutral' }
+    { time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), message: 'System initialized. AI transaction monitoring active.', type: 'neutral' }
   ]);
   
   const [isSimulatorOpen, setIsSimulatorOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('active');
 
-  // Interest Engine Calculation
+  // Interest Engine
   const [avatarState, setAvatarState] = useState('warning');
+  const [currentSpeech, setCurrentSpeech] = useState("Danger Zone! ⚠️");
+  const [isPoked, setIsPoked] = useState(false);
+
   const baseRate = 3.00;
   let currentBonusRate = 0.00;
 
@@ -26,34 +29,44 @@ export default function ChallengeReward() {
 
   const totalRate = baseRate + currentBonusRate;
 
-  // Visual State Mapping
-  useEffect(() => {
-    if (resilienceScore === 100) setAvatarState('max');
-    else if (resilienceScore >= 75) setAvatarState('happy');
-    else if (resilienceScore >= 50) setAvatarState('neutral');
-    else if (resilienceScore >= 25) setAvatarState('calm');
-    else setAvatarState('warning');
-  }, [resilienceScore]);
-
-  // Speech Bubble Text Mapping
-  const getSpeechText = (state) => {
-    switch(state) {
-      case 'max': return "Max Resilient! ✨";
-      case 'happy': return "Doing great! 📈";
-      case 'neutral': return "Steady saver. ☕";
-      case 'calm': return "Just starting out. 🌱";
-      case 'warning': return "Danger Zone! ⚠️";
-      default: return "...";
-    }
+  // Pet Dialogue Library
+  const petDialogues = {
+    max: ["Max Resilient! ✨", "I feel unstoppable! 💸", "We are on fire! 🔥", "Interest rate maximized! 🚀"],
+    happy: ["Doing great! 📈", "Keep saving! 💰", "I love this! 🥰", "Almost at the top!"],
+    neutral: ["Steady saver. ☕", "Just chilling. 😌", "Slow and steady.", "Any round-ups today?"],
+    calm: ["Just starting out. 🌱", "Let's build good habits.", "Need more points...", "A bit sleepy... 🥱"],
+    warning: ["Danger Zone! ⚠️", "Watch the budget! 📉", "I'm stressed! 💧", "No more online shopping!"]
   };
 
-  // Quests Data
+  // Update Pet State based on Score
+  useEffect(() => {
+    let newState = 'warning';
+    if (resilienceScore === 100) newState = 'max';
+    else if (resilienceScore >= 75) newState = 'happy';
+    else if (resilienceScore >= 50) newState = 'neutral';
+    else if (resilienceScore >= 25) newState = 'calm';
+    
+    setAvatarState(newState);
+    setCurrentSpeech(petDialogues[newState][0]); // Set default speech for new state
+  }, [resilienceScore]);
+
+  // Handle Pet Click (Poke Interaction)
+  const handlePetClick = () => {
+    if (isPoked) return; 
+    
+    setIsPoked(true);
+    setTimeout(() => setIsPoked(false), 400); 
+
+    const availableDialogues = petDialogues[avatarState].filter(text => text !== currentSpeech);
+    const randomText = availableDialogues[Math.floor(Math.random() * availableDialogues.length)];
+    setCurrentSpeech(randomText);
+  };
+
+  // Monthly Quests
   const [challenges, setChallenges] = useState([
-    // Rewards
     { id: 'r1', title: 'Monthly Micro-Saver', description: 'Complete 30 automated round-ups this month.', difficulty: 'easy', type: 'reward', reward: 15, penalty: 0, icon: '🪙', progress: 29, maxProgress: 30, completed: false, isFailed: false, active: true },
     { id: 'r2', title: '30-Day Pocket Fund', description: 'Transfer RM 500 into your Savings Pocket this month.', difficulty: 'hard', type: 'reward', reward: 50, penalty: 0, icon: '🎯', progress: 400, maxProgress: 500, completed: false, isFailed: false, active: true },
     { id: 'r3', title: 'Essential Spender', description: 'Make 10 grocery transactions using your GX Card this month.', difficulty: 'medium', type: 'reward', reward: 25, penalty: 0, icon: '🛒', progress: 9, maxProgress: 10, completed: false, isFailed: false, active: true },
-    // Penalties
     { id: 'p1', title: 'E-Commerce Limit', description: 'Keep online shopping under RM 300 this month.', difficulty: 'hard', type: 'penalty', reward: 20, penalty: 30, icon: '🛍️', progress: 250, maxProgress: 300, completed: false, isFailed: false, active: true },
     { id: 'p2', title: 'Late-Night Cravings', description: 'Keep food deliveries between 12AM-6AM under 3 times this month.', difficulty: 'medium', type: 'penalty', reward: 15, penalty: 20, icon: '🌙', progress: 2, maxProgress: 3, completed: false, isFailed: false, active: true }
   ]);
@@ -64,12 +77,7 @@ export default function ChallengeReward() {
     setLogs(prevLogs => [newLog, ...prevLogs].slice(0, 6));
   };
 
-  const getDifficultyColor = (difficulty) => {
-    const colorMap = { easy: '#34d399', medium: '#fbbf24', hard: '#f87171' };
-    return colorMap[difficulty];
-  };
-
-  // Sim: Micro-Saver (r1)
+  // Simulation: Micro-Saver
   const handleSimulateCoffee = () => {
     const spend = 12.40, save = 0.60; 
     if (balance < 13) return alert("Insufficient funds");
@@ -103,7 +111,7 @@ export default function ChallengeReward() {
     setIsSimulatorOpen(false);
   };
 
-  // Sim: Pocket Fund (r2)
+  // Simulation: Pocket Fund
   const handleSimulateTransfer = () => {
     const transferAmount = 100.00;
     if (balance < transferAmount) return alert("Insufficient funds");
@@ -137,7 +145,7 @@ export default function ChallengeReward() {
     setIsSimulatorOpen(false);
   };
 
-  // Sim: Essential Spender (r3)
+  // Simulation: Essential Spender
   const handleSimulateGrocery = () => {
     const spend = 50.00;
     if (balance < spend) return alert("Insufficient funds");
@@ -170,7 +178,7 @@ export default function ChallengeReward() {
     setIsSimulatorOpen(false);
   };
 
-  // Sim: E-Commerce Limit (p1)
+  // Simulation: E-Commerce Limit
   const handleSimulateOnlineShopping = () => {
     const spend = 100.00;
     if (balance < spend) return alert("Insufficient funds");
@@ -203,7 +211,7 @@ export default function ChallengeReward() {
     setIsSimulatorOpen(false);
   };
 
-  // Sim: Late-Night Cravings (p2)
+  // Simulation: Late-Night Limit
   const handleSimulateLateNightFood = () => {
     const spend = 35.00;
     if (balance < spend) return alert("Insufficient funds");
@@ -236,7 +244,7 @@ export default function ChallengeReward() {
     setIsSimulatorOpen(false);
   };
 
-  // Sim: Month End Evaluator
+  // Simulation: Month End
   const handleMonthEnd = () => {
     let earnedPoints = 0;
     let newLogs = [];
@@ -275,7 +283,7 @@ export default function ChallengeReward() {
     setIsSimulatorOpen(false);
   };
 
-  // Filter Assignment
+  // Filter Tasks
   const displayChallenges = challenges.filter(c => {
     if (selectedFilter === 'active') return c.active;
     if (selectedFilter === 'done') return c.completed || c.isFailed;
@@ -285,25 +293,47 @@ export default function ChallengeReward() {
   return (
     <div className={styles.pageContainer}>
       
-      {/* Header View */}
+      {/* Header */}
       <header className={styles.header}>
-        <div className={styles.brandInfo}>
-          <div className={styles.brand}>Challenge and Reward</div>
-          <span className={styles.tagline}>Auto-Pilot Your Wealth</span>
-        </div>
-        <div className={styles.headerBalances}>
-          <div className={styles.balanceItem}><span>Main Account</span> <strong>RM {balance.toFixed(2)}</strong></div>
-          <div className={styles.balanceItem}><span>Savings Pocket</span> <strong className={styles.highlight}>RM {pocketBalance.toFixed(2)}</strong></div>
+        <div>
+          <h2>Challenges</h2>
+          <p>Level up your financial resilience</p>
         </div>
       </header>
 
-      {/* Hero Panel View */}
+      {/* Summary Card */}
+      <section className={styles.summaryCard}>
+        <div className={styles.summaryTop}>
+          <div>
+            <p>Account Overview</p>
+            <h3>GX-Avatar</h3>
+          </div>
+          <div className={styles.gxWatermark}>GX</div>
+        </div>
+
+        <div className={styles.summaryGrid}>
+          <div>
+            <p>Main Account</p>
+            <strong>RM {balance.toFixed(2)}</strong>
+          </div>
+          <div>
+            <p>Savings Pocket</p>
+            <strong style={{ color: '#34d399' }}>RM {pocketBalance.toFixed(2)}</strong>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Panel */}
       <section className={styles.heroSection}>
-        {/* Dynamic Avatar Container */}
+        {/* Avatar Panel with Interaction */}
         <div className={`${styles.avatarPanel} ${styles[`panel_${avatarState}`]}`}>
-          <div className={styles.petContainer}>
+          <div 
+            className={`${styles.petContainer} ${isPoked ? styles.isPoked : ''}`} 
+            onClick={handlePetClick}
+            title="Poke me!"
+          >
             <div className={styles.speechBubble}>
-              {getSpeechText(avatarState)}
+              {currentSpeech}
             </div>
             
             <div className={`${styles.petHologram} ${styles[avatarState]}`}>
@@ -319,7 +349,7 @@ export default function ChallengeReward() {
           </div>
         </div>
 
-        {/* Dynamic Interest Container */}
+        {/* Interest Dashboard */}
         <div className={styles.interestPanel}>
           <h3 className={styles.panelTitle}>Current Dynamic Interest (p.a.)</h3>
           <div className={styles.interestRateDisplay}>
@@ -409,6 +439,7 @@ export default function ChallengeReward() {
                   </div>
                 </div>
 
+                {/* State Status Badges */}
                 {!challenge.active && (
                   <div className={styles.cardFooter}>
                     {challenge.completed && (
@@ -454,7 +485,7 @@ export default function ChallengeReward() {
         </ul>
       </section>
 
-      {/* Utilities Overlay */}
+      {/* Simulators */}
       <button className={styles.fab} onClick={() => setIsSimulatorOpen(true)} title="Open Simulators">?</button>
 
       {isSimulatorOpen && (
