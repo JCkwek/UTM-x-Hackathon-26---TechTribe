@@ -82,16 +82,9 @@ function Transactions() {
             {/* Header */}
             <header className={styles.header}>
                 <div>
-                    <h2>Smart Ledger</h2>
+                    <h2>Transactions</h2>
                     <p>Transactions meet bookkeeping</p>
                 </div>
-
-                <button
-                    className={styles.addBtn}
-                    onClick={() => handleClick('Add transaction')}
-                >
-                    +
-                </button>
             </header>
 
             {/* Monthly Summary */}
@@ -99,9 +92,9 @@ function Transactions() {
                 <div className={styles.summaryTop}>
                     <div>
                         <p>Monthly Overview</p>
-                        <h3>May 2025</h3>
+                        <h3>May 2026</h3>
                     </div>
-                    <span>AI Ledger</span>
+                    <div className={styles.gxWatermark}>GX</div>
                 </div>
 
                 <div className={styles.summaryGrid}>
@@ -127,42 +120,10 @@ function Transactions() {
                 </div>
             </section>
 
-            {/* Simulate Transaction */}
-            <section className={styles.simulateSection}>
-                <h3>Simulate Transaction</h3>
-
-                <div className={styles.simulateGrid}>
-                    <button
-                        className={styles.simulateCard}
-                        onClick={() => handleClick('Simulate GrabFood Transaction')}
-                    >
-                        <div className={styles.simulateIcon}>🍔</div>
-                        <div>
-                            <h4>GrabFood</h4>
-                            <p>Debit RM28.90</p>
-                        </div>
-                    </button>
-
-                    <button
-                        className={styles.simulateCard}
-                        onClick={() => handleClick('Simulate Salary Received')}
-                    >
-                        <div className={styles.simulateIcon}>💼</div>
-                        <div>
-                            <h4>Salary</h4>
-                            <p>Credit RM1,800</p>
-                        </div>
-                    </button>
-                </div>
-            </section>
-
             {/* Bookkeeping Breakdown */}
             <section className={styles.breakdownSection}>
                 <div className={styles.sectionHeader}>
-                    <h3>Bookkeeping Breakdown</h3>
-                    <button onClick={() => handleClick('View budgets')}>
-                        View all ›
-                    </button>
+                    <h3>Bookkeeping Breakdown</h3>                 
                 </div>
 
                 <div className={styles.categoryList}>
@@ -209,8 +170,8 @@ function Transactions() {
             <section className={styles.historySection}>
                 <div className={styles.sectionHeader}>
                     <h3>Transaction History</h3>
-                    <button onClick={() => handleClick('Filter transactions')}>
-                        Filter ›
+                    <button onClick={() => handleClick('View History')}>
+                        View all ›
                     </button>
                 </div>
 

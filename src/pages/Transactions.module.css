@@ -131,6 +131,13 @@
   font-size: 0.95rem;
 }
 
+.gxWatermark {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.06);
+  line-height: 1;
+}
+
 /* ============ Simulate Transaction ============ */
 .simulateSection,
 .breakdownSection,
