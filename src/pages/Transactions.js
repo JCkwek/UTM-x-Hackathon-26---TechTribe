@@ -3,58 +3,58 @@ import styles from './Transactions.module.css';
 function Transactions() {
     const monthlySummary = {
         income: 1800.00,
-        spending: 428.90,
-        autoSaved: 102.10,
-        balanceImpact: 1269.00
+        spending: 48.90,
+        autoSaved: 0.10,
+        balanceImpact: 0.87
     };
 
     const categories = [
         {
             name: 'Food Delivery',
             icon: '🍔',
-            spent: 178.90,
+            spent: 28.90,
             budget: 180.00,
-            status: 'Near limit'
+            status: 'Healthy'
         },
         {
             name: 'Transport',
             icon: '🚌',
-            spent: 45.00,
-            budget: 120.00,
+            spent: 0.00,
+            budget: 200.00,
             status: 'Healthy'
         },
         {
             name: 'Bills',
             icon: '🧾',
-            spent: 120.00,
-            budget: 250.00,
+            spent: 20.00,
+            budget: 150.00,
             status: 'Healthy'
         },
         {
             name: 'Leisure',
             icon: '🎮',
-            spent: 85.00,
-            budget: 150.00,
-            status: 'Moderate'
+            spent: 0.00,
+            budget: 100.00,
+            status: 'Healthy'
         }
     ];
 
     const transactions = [
         {
             id: 1,
-            merchant: 'ABC Sdn Bhd',
-            category: 'Salary',
+            merchant: 'TechTribe Sdn Bhd',
+            category: 'Income',
             type: 'credit',
             amount: 1800.00,
             time: 'Today, 9:00 AM',
-            note: 'Salary trigger saved RM100.00'
+            note: ''
         },
         {
             id: 2,
-            merchant: 'GrabFood',
+            merchant: 'Grab Food',
             category: 'Food Delivery',
             type: 'debit',
-            amount: 28.90,
+            amount: 29.00,
             time: 'Today, 12:45 PM',
             note: 'Round-off saved RM0.10'
         },
@@ -171,23 +171,13 @@ function Transactions() {
                 <div className={styles.sectionHeader}>
                     <h3>Transaction History</h3>
                     <button onClick={() => handleClick('View History')}>
-                        View all ›
+                        View History
                     </button>
                 </div>
 
                 <div className={styles.historyList}>
                     {transactions.map((transaction) => (
-                        <div key={transaction.id} className={styles.historyItem}>
-                            <div
-                                className={`${styles.transactionIcon} ${
-                                    transaction.type === 'credit'
-                                        ? styles.creditIcon
-                                        : styles.debitIcon
-                                }`}
-                            >
-                                {transaction.type === 'credit' ? '↓' : '↑'}
-                            </div>
-
+                        <div key={transaction.id} className={styles.historyItem}>                          
                             <div className={styles.historyInfo}>
                                 <h4>{transaction.merchant}</h4>
                                 <p>{transaction.category} · {transaction.time}</p>

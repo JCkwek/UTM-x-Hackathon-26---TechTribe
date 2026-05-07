@@ -37,26 +37,17 @@
   font-size: 0.9rem;
 }
 
-.addBtn {
-  width: 44px;
-  height: 44px;
-  border: none;
-  border-radius: 50%;
-  background: white;
-  color: #111827;
-  font-size: 1.5rem;
-  font-weight: 900;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
 /* ============ Summary Card ============ */
 .summaryCard {
   position: relative;
   overflow: hidden;
   background:
-      radial-gradient(circle at 85% 15%, rgba(236, 72, 153, 0.18) 0%, transparent 28%),
-      linear-gradient(135deg, #05030a 0%, #0b0612 48%, #12091f 100%);
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(236, 72, 153, 0.18) 0%,
+      transparent 28%
+    ),
+    linear-gradient(135deg, #05030a 0%, #0b0612 48%, #12091f 100%);
   color: white;
   padding: 1.2rem;
   border-radius: 24px;
@@ -64,7 +55,7 @@
 }
 
 .summaryCard::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 260px;
   height: 100px;
@@ -100,13 +91,11 @@
   font-size: 1.4rem;
 }
 
-.summaryTop span {
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  color: #eee7ff;
-  font-size: 0.75rem;
-  font-weight: 700;
+.gxWatermark {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.08);
+  line-height: 1;
 }
 
 .summaryGrid {
@@ -131,15 +120,7 @@
   font-size: 0.95rem;
 }
 
-.gxWatermark {
-  font-size: 3.2rem;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.06);
-  line-height: 1;
-}
-
-/* ============ Simulate Transaction ============ */
-.simulateSection,
+/* ============ Section Layout ============ */
 .breakdownSection,
 .historySection {
   display: flex;
@@ -147,70 +128,25 @@
   gap: 12px;
 }
 
-.simulateSection h3,
-.sectionHeader h3 {
-  margin: 0;
-  color: #111827;
-  font-size: 1.1rem;
-  font-weight: 800;
-}
-
-.simulateGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.simulateCard {
-  border: 1px solid #edf0f3;
-  background: white;
-  border-radius: 20px;
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 46px 1fr;
-  gap: 12px;
-  align-items: center;
-  text-align: left;
-  font-family: inherit;
-  cursor: pointer;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
-}
-
-.simulateIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: #e8fff0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-}
-
-.simulateCard h4 {
-  margin: 0;
-  color: #111827;
-  font-size: 0.9rem;
-}
-
-.simulateCard p {
-  margin: 4px 0 0;
-  color: #6b7280;
-  font-size: 0.75rem;
-}
-
-/* ============ Section Header ============ */
 .sectionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.sectionHeader h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
 .sectionHeader button {
   border: none;
   background: none;
   color: #009b67;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 800;
   font-family: inherit;
   cursor: pointer;
 }
@@ -306,42 +242,22 @@
 .historyList {
   background: white;
   border: 1px solid #edf0f3;
-  border-radius: 20px;
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
 }
 
 .historyItem {
   display: grid;
-  grid-template-columns: 44px 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 12px;
-  align-items: center;
-  padding: 0.95rem;
+  align-items: start;
+  padding: 1rem;
   border-bottom: 1px solid #edf0f3;
 }
 
 .historyItem:last-child {
   border-bottom: none;
-}
-
-.transactionIcon {
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-}
-
-.creditIcon {
-  background: #e8fff0;
-  color: #009b67;
-}
-
-.debitIcon {
-  background: #fff7ed;
-  color: #ea580c;
 }
 
 .historyInfo {
@@ -351,25 +267,42 @@
 .historyInfo h4 {
   margin: 0;
   color: #111827;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 .historyInfo p {
-  margin: 3px 0;
+  margin: 4px 0 0;
   color: #6b7280;
   font-size: 0.72rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .historyInfo span {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 7px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #f0fff4;
   color: #009b67;
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 .creditAmount,
 .debitAmount {
-  font-size: 0.82rem;
+  padding-top: 2px;
+  font-size: 0.9rem;
+  font-weight: 900;
   white-space: nowrap;
+  text-align: right;
 }
 
 .creditAmount {
@@ -383,39 +316,59 @@
 /* ============ Responsive ============ */
 @media (max-width: 480px) {
   .transactions {
-      padding: 0.9rem;
-      padding-bottom: 80px;
-      gap: 15px;
+    padding: 0.9rem;
+    padding-bottom: 80px;
+    gap: 15px;
   }
 
   .header h2 {
-      font-size: 1.45rem;
+    font-size: 1.45rem;
   }
 
   .summaryGrid {
-      gap: 10px;
+    gap: 10px;
   }
 
   .summaryGrid div {
-      padding: 0.75rem;
+    padding: 0.75rem;
   }
 
   .summaryGrid strong {
-      font-size: 0.82rem;
-  }
-
-  .simulateGrid {
-      grid-template-columns: 1fr;
+    font-size: 0.82rem;
   }
 
   .historyItem {
-      grid-template-columns: 42px 1fr;
+    gap: 10px;
+    padding: 0.9rem;
+  }
+
+  .historyInfo h4 {
+    font-size: 0.88rem;
+  }
+
+  .historyInfo p {
+    font-size: 0.66rem;
+  }
+
+  .historyInfo span {
+    font-size: 0.62rem;
+    padding: 3px 7px;
   }
 
   .creditAmount,
   .debitAmount {
-      grid-column: 2;
-      justify-self: start;
-      margin-top: 4px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .historyItem {
+    grid-template-columns: 1fr;
+  }
+
+  .creditAmount,
+  .debitAmount {
+    justify-self: start;
+    margin-top: 4px;
   }
 }
