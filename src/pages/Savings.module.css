@@ -10,7 +10,6 @@
   box-sizing: border-box;
 }
 
-/* 防止所有元素撑爆宽度 */
 .savings *,
 .savings *::before,
 .savings *::after {

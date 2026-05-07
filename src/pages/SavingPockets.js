@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 function SavingPockets() {
     const navigate = useNavigate();
     const myPockets = [
-        { name: 'Emergency Fund', saved: 1200.00, target: 5000.00, progress: 24, icon: '🚨' },
-        { name: 'New Laptop', saved: 2500.00, target: 4500.00, progress: 55, icon: '💻' },
-        { name: 'Travel 2026', saved: 620.00, target: 1000.00, progress: 62, icon: '✈️' }
+        { name: 'Emergency Fund', saved: 350.00, target: 400.00, progress: 87.5, icon: '🚨' },
+        { name: 'New Laptop', saved: 150.00, target: 300.00, progress: 50, icon: '💻' },
+        { name: 'Travel 2026', saved: 120.00, target: 300.00, progress: 40, icon: '✈️' }
     ];
 
     const handleEdit = (name) => alert(`Editing target for ${name}`);

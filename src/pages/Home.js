@@ -1,5 +1,6 @@
 import styles from './Home.module.css';
 import { useNavigate } from 'react-router-dom';
+import { MdSend, MdCallReceived, MdQrCodeScanner, MdOutlineMoreHoriz } from "react-icons/md";
 
 function Home() {
     const navigate = useNavigate();
@@ -63,10 +64,10 @@ function Home() {
             {/* Quick Actions */}
             <section className={styles.quickActions}>
                 {[
-                    { label: 'Send', icon: '➤' },
-                    { label: 'Receive', icon: '↓' },
-                    { label: 'Scan', icon: '▣' },
-                    { label: 'More', icon: '▦' }
+                    { label: 'Send', icon: <MdSend /> },
+                    { label: 'Receive', icon: <MdCallReceived /> },
+                    { label: 'Scan', icon: <MdQrCodeScanner /> },
+                    { label: 'More', icon: <MdOutlineMoreHoriz /> }
                 ].map((item) => (
                     <button
                         key={item.label}
@@ -83,9 +84,6 @@ function Home() {
             <section className={styles.insightSection}>
                 <div className={styles.sectionHeader}>
                     <h3>AI Insight</h3>
-                    <button onClick={() => handleClick('See all insights')}>
-                        See all ›
-                    </button>
                 </div>
 
                 <div className={styles.aiInsightCard}>

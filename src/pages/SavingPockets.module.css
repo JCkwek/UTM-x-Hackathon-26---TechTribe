@@ -17,6 +17,19 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
+.addBtn{
+    flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #009b67;
+  color: white;
+  font-size: 1.35rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
 .addBtn {
   flex-shrink: 0;
   width: 42px;
