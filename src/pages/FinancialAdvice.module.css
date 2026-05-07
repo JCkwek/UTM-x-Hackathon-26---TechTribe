@@ -408,16 +408,19 @@
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 12px;
+  width: 100%;
 }
 
 .cancelBtn,
 .continueBtn {
+  width: 100%;
   border-radius: 18px;
   padding: 0.95rem 1rem;
   font-family: inherit;
   font-weight: 800;
   cursor: pointer;
   font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .cancelBtn {
@@ -568,8 +571,17 @@
     grid-row: 2;
     font-size: 0.72rem;
   }
+
   .decisionButtons {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 10px;
+  }
+  
+  .cancelBtn,
+  .continueBtn {
+    padding: 0.85rem 0.75rem;
+    font-size: 0.88rem;
+    border-radius: 16px;
   }
 }
 
@@ -687,5 +699,17 @@
 
   .aiAdviceCard {
     grid-template-columns: 1fr;
+  }
+
+  .decisionButtons {
+    grid-template-columns: 0.9fr 1.2fr;
+    gap: 8px;
+  }
+
+  .cancelBtn,
+  .continueBtn {
+    padding: 0.78rem 0.55rem;
+    font-size: 0.8rem;
+    border-radius: 14px;
   }
 }
