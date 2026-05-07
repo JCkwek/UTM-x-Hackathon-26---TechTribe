@@ -3,7 +3,7 @@ import styles from './Transactions.module.css';
 function Transactions() {
     const monthlySummary = {
         income: 1800.00,
-        spending: 48.90,
+        spending: 198.90,
         autoSaved: 0.10,
         balanceImpact: 0.87
     };
@@ -12,9 +12,9 @@ function Transactions() {
         {
             name: 'Food Delivery',
             icon: '🍔',
-            spent: 28.90,
+            spent: 178.90,
             budget: 180.00,
-            status: 'Healthy'
+            status: 'Near limit'
         },
         {
             name: 'Transport',
