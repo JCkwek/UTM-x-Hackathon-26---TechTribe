@@ -13,10 +13,16 @@
 }
 
 .pocketsGrid{
-    display: flex;
+    display: grid;
+    /* overflow: hidden; */
     gap: 1rem;
-    justify-content: center;
+    align-items: center;
+    /* justify-content: center; */
     flex-direction: column;
-    padding: 1rem;
+    padding: 0 10px;
     width: 100%;
+}
+
+*{
+    box-sizing: border-box;
 }
