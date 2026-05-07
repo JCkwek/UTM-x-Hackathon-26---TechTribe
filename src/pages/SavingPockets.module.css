@@ -1,3 +1,8 @@
+.headerBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .backBtn {
   width: 42px;
@@ -12,17 +17,28 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-.pocketsGrid{
-    display: grid;
-    /* overflow: hidden; */
-    gap: 1rem;
-    align-items: center;
-    /* justify-content: center; */
-    flex-direction: column;
-    padding: 0 10px;
-    width: 100%;
+.addBtn {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #009b67;
+  color: white;
+  font-size: 1.35rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-*{
-    box-sizing: border-box;
+.pocketsGrid {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }

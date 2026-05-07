@@ -16,12 +16,11 @@ function SavingPockets() {
     return (
         <div className={styles.container}>
             <header className={styles.pocketsHeader}>
-                <h2>My Pockets</h2>
-                <button
-                    className={styles.backBtn}
-                    onClick={() => navigate(-1)}
-                ></button>
-                <button className={styles.addBtn}>+ Create New</button>
+                <div className={styles.headerBtn}>
+                    <button className={styles.backBtn}  onClick={() => navigate(-1)}>←</button>
+                    <h2>My Pockets</h2>
+                    <button className={styles.addBtn}>+</button>
+                </div>
             </header>
 
             <div className={styles.pocketsGrid}>
