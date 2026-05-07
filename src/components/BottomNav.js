@@ -7,10 +7,10 @@ function BottomNav(){
     const location = useLocation();
 
     const navItems = [
-        { path: '/', icon: <BsHouseDoorFill size={24} />, label: 'Home', id: 'home' },
-        { path: '/savings', icon: <BsHeartFill size={24} />, label: 'Savings', id: 'savings' },
-        { path: '/transactions', icon: <BsReceiptCutoff size={24} />, label: 'Transaction', id: 'transactions' },
-        { path: '/challenges', icon: <BsTrophyFill size={24} />, label: 'Challenges', id: 'challenges' }
+        { path: '/', icon: <BsHouseDoorFill size={20} />, label: 'Home', id: 'home' },
+        { path: '/savings', icon: <BsHeartFill size={20} />, label: 'Savings', id: 'savings' },
+        { path: '/transactions', icon: <BsReceiptCutoff size={20} />, label: 'Transaction', id: 'transactions' },
+        { path: '/challenges', icon: <BsTrophyFill size={20} />, label: 'Challenges', id: 'challenges' }
 
     ];
 
