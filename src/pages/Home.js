@@ -124,7 +124,7 @@ function Home() {
             <section className={styles.pocketsSection}>
                 <div className={styles.sectionHeader}>
                     <h3>Pockets</h3>
-                    <button onClick={() => handleClick('View all pockets')}>
+                    <button onClick={() => navigate('/saving_pockets')}>
                         View all ›
                     </button>
                 </div>
