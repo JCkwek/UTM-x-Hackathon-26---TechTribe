@@ -7,6 +7,7 @@ import FinancialAdvice from './pages/FinancialAdvice';
 import Savings from './pages/Savings';
 import Scanning from './pages/Scanning';
 import Transactions from './pages/Transactions';
+import SavingPockets from './pages/SavingPockets';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/transactions" element={<Transactions />} />
           <Route path="challenges" element={<ChallengeReward />} />
           <Route path="scanning" element={<Scanning />} />
+          <Route path="saving_pockets" element={<SavingPockets />} />
         </Route>
       </Routes>
     </BrowserRouter>

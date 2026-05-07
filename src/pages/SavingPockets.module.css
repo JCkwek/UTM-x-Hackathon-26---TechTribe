@@ -1,0 +1,22 @@
+
+.backBtn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #111827;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.pocketsGrid{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%;
+}

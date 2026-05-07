@@ -1,8 +1,10 @@
 import styles from './Savings.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function Savings() {
+    const navigate = useNavigate();
     const pocket = {
-        name: 'Emergency Pocket',
+        name: 'Pockets',
         saved: 620.00,
         target: 1000.00,
         progress: 62
@@ -14,13 +16,6 @@ function Savings() {
             icon: '🧾',
             title: 'Round-off Savings',
             description: 'Round every purchase to the nearest RM1',
-            enabled: true
-        },
-        {
-            id: 'salary',
-            icon: '💳',
-            title: 'Salary Trigger',
-            description: 'Auto-transfer RM100 when salary arrives',
             enabled: true
         },
         {
@@ -48,13 +43,6 @@ function Savings() {
             time: 'Today, 12:45 PM'
         },
         {
-            id: 2,
-            icon: '💳',
-            title: 'Salary trigger',
-            amount: 'RM100.00',
-            time: 'Today, 9:00 AM'
-        },
-        {
             id: 3,
             icon: '📅',
             title: 'Daily micro save',
@@ -76,7 +64,7 @@ function Savings() {
             {/* Header */}
             <header className={styles.header}>
                 <div>
-                    <h2>Automated Saving</h2>
+                    <h2>Savings</h2>
                     <p>Save effortlessly every day</p>
                 </div>
 
@@ -89,7 +77,7 @@ function Savings() {
             </header>
 
             {/* Emergency Pocket Hero Card */}
-            <section className={styles.heroCard}>
+            <section className={styles.heroCard} onClick={() => navigate('/saving_pockets')}>
                 <div className={styles.heroLeft}>
                     <div className={styles.pocketTitle}>
                         <span className={styles.heroIcon}>💡</span>
@@ -193,13 +181,6 @@ function Savings() {
                 </div>
             </section>
 
-            {/* CTA */}
-            <button
-                className={styles.createRuleBtn}
-                onClick={() => handleClick('Create New Rule')}
-            >
-                + Create New Rule
-            </button>
         </div>
     );
 }
