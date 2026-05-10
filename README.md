@@ -1,5 +1,5 @@
-# Prototype Link
-(https://utm-x-hackathon-26-tech-tribe.vercel.app/)
+# Deployment Link
+https://utm-x-hackathon-26-tech-tribe.vercel.app/
 
 ## Available Scripts
 
