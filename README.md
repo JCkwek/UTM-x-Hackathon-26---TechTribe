@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Prototype Link
+(https://utm-x-hackathon-26-tech-tribe.vercel.app/)
 
 ## Available Scripts
 
